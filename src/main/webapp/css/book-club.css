@@ -1,0 +1,74 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 21/10/2023, 3:52:35 p. m.
+    Author     : Jon Leal
+*/
+
+.my-container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 400px;
+}
+.btn-primary {
+    background-color: #43b649;
+    border-color: #43b649;
+}
+.btn-secondary {
+    background-color: #137598;
+    border-color: #137598;
+}
+/* Eliminar el efecto "hover" en los botones */
+.btn-primary:hover {
+    background-color: #43b649;
+    border-color: #43b649;
+}
+.btn-secondary:hover {
+    background-color: #137598;
+    border-color: #137598;
+}
+
+.navbar {
+    background-color: #33691e !important;
+}
+
+footer {
+    background-color: #33691e;
+    color: #fff;
+    padding: 20px 0;
+}
+footer img {
+    max-width: 100px;
+}
+#informacionF ul {
+    list-style: none;
+    padding: 0;
+}
+#informacionF li h3, #informacionContacto h4 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+#newsletter h3 {
+    font-size: 20px;
+}
+#newsletter p {
+    font-size: 16px;
+}
+#email {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+#suscribirse {
+    background-color: #43b649;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+}
+#redesF a {
+    color: #fff;
+    margin-right: 10px;
+}

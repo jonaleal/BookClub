@@ -1,0 +1,36 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 21/10/2023, 1:28:13 p. m.
+    Author     : Jon Leal
+*/
+
+body {
+    background-color: #33691e;
+}
+.my-container {
+    background-color: #ffffff;
+    margin-top: 200px;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 400px;
+}
+.btn-primary {
+    background-color: #43b649;
+    border-color: #43b649;
+}
+.btn-secondary {
+    background-color: #137598;
+    border-color: #137598;
+}
+/* Eliminar el efecto "hover" en los botones */
+.btn-primary:hover {
+    background-color: #43b649;
+    border-color: #43b649;
+}
+.btn-secondary:hover {
+    background-color: #137598;
+    border-color: #137598;
+}
