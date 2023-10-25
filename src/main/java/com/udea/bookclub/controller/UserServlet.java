@@ -46,20 +46,17 @@ public class UserServlet extends HttpServlet {
 
         String action = request.getServletPath();
         System.out.println(action);
-
-//        if (action == null) {
-//            action = "list"; // Acción predeterminada
-//        }
+        
+        boolean isLogued = request.getSession().getAttribute("isLogued") == null ? false : (boolean) request.getSession().getAttribute("isLogued");
+        if (!isLogued) {
+            response.sendRedirect("/BookClub/test.jsp");
+            return;
+        }
+        
         switch (action) {
             case "/user/list":
                 listUsers(request, response);
-                break;
-            case "/user/create-form":
-                showCreateForm(request, response);
-                break;
-            case "/user/create":
-                createUser(request, response);
-                break;
+                break;          
             case "/user/update-form":
                 showUpdateForm(request, response);
                 break;
@@ -69,12 +66,6 @@ public class UserServlet extends HttpServlet {
 //            case "/user/delete":
 //                deleteUser(request, response);
 //                break;
-            case "/user/sign-in-form":
-                showSignInForm(request, response);
-                break;
-            case "/user/sign-in":
-                signInUser(request, response);
-                break;
             case "/user/sign-out":
                 signOutUser(request, response);
                 break;
@@ -130,27 +121,6 @@ public class UserServlet extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
-    private void showCreateForm(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/user/user-sign-up.jsp");
-        dispatcher.forward(request, response);
-    }
-
-    private void createUser(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        // Recupera los datos del formulario
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        String email = request.getParameter("email");
-        Date birthdate = convertStringToDate(request.getParameter("birthdate"), "yyyy-MM-dd");
-        // Crea un objeto User con los datos del formulario
-        User newUser = new User(username, email, password, birthdate);
-        // Crea el usuario en la base de datos
-        userBusiness.createUser(newUser);
-        // Redirecciona a la lista de usuarios
-        response.sendRedirect("/BookClub/user/sign-in-form");
-    }
-
     private void showUpdateForm(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         // Recupera el username
@@ -168,33 +138,6 @@ public class UserServlet extends HttpServlet {
             throws ServletException, IOException {
         //Crear usuario
         response.sendRedirect("/user/user-test.jsp");
-    }
-
-    private void showSignInForm(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/user/user-sign-in.jsp");
-        dispatcher.forward(request, response);
-    }
-
-    private void signInUser(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        //Recupera la sesion
-        HttpSession session = request.getSession();
-        //Recupera los datos del formulario
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        // Crea un objeto User con los datos del formulario
-        User newUser = new User(username, password);
-        System.out.println(userBusiness.verifyCredentials(newUser));
-        if (userBusiness.verifyCredentials(newUser)) {
-            session.setAttribute("username", username);
-            session.setAttribute("isLogued", true);
-            response.sendRedirect("/BookClub/book-club/list");
-        } else {
-            session.setAttribute("username", "Null");
-            session.setAttribute("isLogued", false);
-            response.sendRedirect("/BookClub/test.jsp");
-        }
     }
 
     private void signOutUser(HttpServletRequest request, HttpServletResponse response)

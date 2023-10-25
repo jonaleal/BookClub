@@ -12,18 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <%
-            String userName = (String) request.getSession().getAttribute("userName");
-            boolean isLogued = (boolean) request.getSession().getAttribute("isLogued");
-            if (isLogued) {
-        %>
-            <p><%= userName%> ha iniciado sesion.</p>
-        <%
-            } else {
-        %>
-            <p>No se ha iniciado sesion.</p>
-        <%
-            }
-        %>
+        <p>No se ha iniciado sesion.</p>
     </body>
 </html>

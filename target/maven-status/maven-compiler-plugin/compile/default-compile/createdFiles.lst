@@ -19,6 +19,7 @@ com\udea\bookclub\dao\CommentJpaController.class
 com\udea\bookclub\dao\IEntityDAO.class
 com\udea\bookclub\dao\DiscussionJpaController.class
 com\udea\bookclub\domain\Discussion.class
+com\udea\bookclub\controller\SignUpAndSignInServlet.class
 com\udea\bookclub\dao\BookClubJpaController.class
 com\udea\bookclub\domain\BookClub_.class
 com\udea\bookclub\domain\User_.class

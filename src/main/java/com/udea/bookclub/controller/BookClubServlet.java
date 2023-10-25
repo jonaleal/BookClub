@@ -45,16 +45,19 @@ public class BookClubServlet extends HttpServlet {
         String action = request.getServletPath();
         System.out.println(action);
 
-//        if (action == null) {
-//            action = "list"; // Acción predeterminada
-//        }
+        boolean isLogued = request.getSession().getAttribute("isLogued") == null ? false : (boolean) request.getSession().getAttribute("isLogued");
+        if (!isLogued) {
+            response.sendRedirect("/BookClub/test.jsp");
+            return;
+        }
+
         switch (action) {
             case "/book-club/list":
                 listBookclubs(request, response);
                 break;
             case "/book-club/show":
                 showBookclub(request, response);
-                break;    
+                break;
             case "/book-club/create-form":
                 showCreateForm(request, response);
                 break;
@@ -121,8 +124,8 @@ public class BookClubServlet extends HttpServlet {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/book-club/book-club-list.jsp");
         dispatcher.forward(request, response);
     }
-    
-    private void showBookclub(HttpServletRequest request, HttpServletResponse response) 
+
+    private void showBookclub(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         int clubId = Integer.parseInt(request.getParameter("clubId"));
         BookClub bookClub = bookClubBusiness.getBookClub(new BookClub(clubId));
@@ -137,7 +140,7 @@ public class BookClubServlet extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
-    private void createBookclub(HttpServletRequest request, HttpServletResponse response) 
+    private void createBookclub(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
         // Recupera los datos del formulario
         String name = request.getParameter("name");

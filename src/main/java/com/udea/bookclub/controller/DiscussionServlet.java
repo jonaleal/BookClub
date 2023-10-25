@@ -45,9 +45,12 @@ public class DiscussionServlet extends HttpServlet {
         String action = request.getServletPath();
         System.out.println(action);
 
-//        if (action == null) {
-//            action = "list"; // Acción predeterminada
-//        }
+        boolean isLogued = request.getSession().getAttribute("isLogued") == null ? false : (boolean) request.getSession().getAttribute("isLogued");
+        if (!isLogued) {
+            response.sendRedirect("/BookClub/test.jsp");
+            return;
+        }
+        
         switch (action) {
             case "/discussion/create":
                 createDiscussion(request, response);

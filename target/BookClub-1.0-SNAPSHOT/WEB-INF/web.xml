@@ -12,13 +12,13 @@
         <servlet-name>DiscussionServlet</servlet-name>
         <servlet-class>com.udea.bookclub.controller.DiscussionServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SignUpAndSignInServlet</servlet-name>
+        <servlet-class>com.udea.bookclub.controller.SignUpAndSignInServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>UserServlet</servlet-name>
         <url-pattern>/user/list</url-pattern>
-        <url-pattern>/user/create-form</url-pattern>
-        <url-pattern>/user/create</url-pattern>
-        <url-pattern>/user/sign-in-form</url-pattern>
-        <url-pattern>/user/sign-in</url-pattern>
         <url-pattern>/user/update-form</url-pattern>
         <url-pattern>/user/update</url-pattern>
         <url-pattern>/user/sign-out</url-pattern>
@@ -35,6 +35,14 @@
         <servlet-name>DiscussionServlet</servlet-name>
         <url-pattern>/DiscussionServlet</url-pattern>
         <url-pattern>/discussion/create</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SignUpAndSignInServlet</servlet-name>
+        <url-pattern>/SignUpAndSignInServlet</url-pattern>
+        <url-pattern>/user/create-form</url-pattern>
+        <url-pattern>/user/create</url-pattern>
+        <url-pattern>/user/sign-in-form</url-pattern>
+        <url-pattern>/user/sign-in</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

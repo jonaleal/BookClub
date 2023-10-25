@@ -42,24 +42,20 @@
         </nav>
 
         <div class="container">
-            
+
             <h2>Club: ${bookClub.name}</h2>
+            <p>${bookClub.description}</p>
             <a href="${bookClub.meetLink}">Enlace de Reunión</a>
             <h1>Discusiones</h1>
             <form action="/BookClub/discussion/create" method="post">
                 <div class="form-group">
-                    <label for="tittle">Título</label>
-                    <input type="text" class="form-control" id="tittle" name="tittle" required>
+                    <input type="text" class="form-control" id="tittle" name="tittle" placeholder="Título" required>
                 </div>
-
                 <div class="form-group">
-                    <label for="description">Descripción:</label>
-                    <input type="text" class="form-control" id="description" name="description" required>
+                    <textarea class="form-control" id="description" name="description" placeholder="Descripción:" required></textarea>
                 </div>
-
                 <input type="text" id="username" name="username" value="${sessionScope.username}" hidden>
                 <input type="text" id="clubId" name="clubId" value="${bookClub.clubId}" hidden>
-
                 <button type="submit" class="btn btn-primary">Comentar</button>
             </form>
 
