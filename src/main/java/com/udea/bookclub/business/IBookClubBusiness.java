@@ -16,6 +16,12 @@ public interface IBookClubBusiness {
     void createBookClub(BookClub bookClub);
 
     List<BookClub> getBookClubs();
-    
+
     BookClub getBookClub(BookClub bookClub);
+
+    List<BookClub> getBookClubsByUser(String userName);
+    
+    void deleteBookClub(Integer clubId);
+    
+    void updateBookClub(BookClub bookClub);
 }

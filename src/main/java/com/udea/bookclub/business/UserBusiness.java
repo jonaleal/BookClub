@@ -46,4 +46,9 @@ public class UserBusiness implements IUserBusiness {
         return userDAO.find(user) != null;
     }
 
+    @Override
+    public void updateUser(User user) {
+       userDAO.edit(user);
+    }
+
 }

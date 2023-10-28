@@ -55,6 +55,9 @@ public class BookClubServlet extends HttpServlet {
             case "/book-club/list":
                 listBookclubs(request, response);
                 break;
+            case "/book-club/list-my-clubs":
+                listMyBookclubs(request, response);
+                break;
             case "/book-club/show":
                 showBookclub(request, response);
                 break;
@@ -70,9 +73,9 @@ public class BookClubServlet extends HttpServlet {
             case "/book-club/update":
                 updateBookclub(request, response);
                 break;
-//            case "/book-club/delete":
-//                deleteUser(request, response);
-//                break;
+            case "/book-club/delete":
+                deleteBookClub(request, response);
+                break;
             default:
                 listBookclubs(request, response);
         }
@@ -156,11 +159,43 @@ public class BookClubServlet extends HttpServlet {
         response.sendRedirect("/BookClub/book-club/list");
     }
 
-    private void showUpdateForm(HttpServletRequest request, HttpServletResponse response) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    private void showUpdateForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int clubId = Integer.parseInt(request.getParameter("clubId"));
+        BookClub bookClub = bookClubBusiness.getBookClub(new BookClub(clubId));
+        request.setAttribute("bookClub", bookClub);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/book-club/book-club-update.jsp");
+        dispatcher.forward(request, response);
     }
 
-    private void updateBookclub(HttpServletRequest request, HttpServletResponse response) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    private void updateBookclub(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        int clubId = Integer.parseInt(request.getParameter("clubId"));
+        String name = request.getParameter("name");
+        String descripcion = request.getParameter("descripcion");
+        String tags = request.getParameter("tags");
+        String meetLink = request.getParameter("meetLink");
+        // Obtiene el objeto BookClub de la Base de Datos
+        BookClub bookClub = bookClubBusiness.getBookClub(new BookClub(clubId));
+        bookClub.setName(name);
+        bookClub.setDescription(descripcion);
+        bookClub.setTags(tags);
+        bookClub.setMeetLink(meetLink);
+        // Actuliza el club en la base de datos
+        bookClubBusiness.updateBookClub(bookClub);
+        response.sendRedirect("/BookClub/book-club/update-form?clubId=" + clubId);
+    }
+
+    private void listMyBookclubs(HttpServletRequest request, HttpServletResponse response) 
+            throws ServletException, IOException {
+        String username = (String)request.getSession().getAttribute("username");
+        List<BookClub> bookClubs = bookClubBusiness.getBookClubsByUser(username);
+        request.setAttribute("bookClubs", bookClubs);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/book-club/book-club-my-list.jsp");
+        dispatcher.forward(request, response);
+    }
+
+    private void deleteBookClub(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        int clubId = Integer.parseInt(request.getParameter("clubId"));
+        bookClubBusiness.deleteBookClub(clubId);
+        response.sendRedirect("/BookClub/book-club/list-my-clubs");
     }
 }

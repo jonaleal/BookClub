@@ -35,14 +35,14 @@ import javax.validation.constraints.Size;
     @NamedQuery(name = "BookClub.findAll", query = "SELECT b FROM BookClub b"),
     @NamedQuery(name = "BookClub.findByClubId", query = "SELECT b FROM BookClub b WHERE b.clubId = :clubId"),
     @NamedQuery(name = "BookClub.findByName", query = "SELECT b FROM BookClub b WHERE b.name = :name"),
-    @NamedQuery(name = "BookClub.findByMeetLink", query = "SELECT b FROM BookClub b WHERE b.meetLink = :meetLink")})
+    @NamedQuery(name = "BookClub.findByMeetLink", query = "SELECT b FROM BookClub b WHERE b.meetLink = :meetLink"),
+    @NamedQuery(name = "BookClub.findByUserName", query = "SELECT b FROM BookClub b WHERE b.userName.userName = :userName")})
 public class BookClub implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @NotNull
     @Column(name = "club_id")
     private Integer clubId;
     @Basic(optional = false)
@@ -81,9 +81,9 @@ public class BookClub implements Serializable {
         this.name = name;
     }
 
-    public BookClub(String name, String description, String tags, String meetLink, User userName) {
+    public BookClub(String name, String descripcion, String tags, String meetLink, User userName) {
         this.name = name;
-        this.description = description;
+        this.description = descripcion;
         this.tags = tags;
         this.meetLink = meetLink;
         this.userName = userName;

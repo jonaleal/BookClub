@@ -29,10 +29,6 @@
                 <label for="email">Correo Electrónico:</label>
                 <input type="email" class="form-control" id="email" name="email" required>
             </div>
-            <div class="form-group">
-                <label for="birthdate">Fecha de Nacimiento:</label>
-                <input type="date" class="form-control" id="birthdate" name="birthdate" required>
-            </div>
             <button type="submit" class="btn btn-primary btn-block">Registrar</button>
         </form>
     </div>

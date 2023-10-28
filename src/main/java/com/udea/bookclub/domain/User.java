@@ -5,7 +5,6 @@
 package com.udea.bookclub.domain;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Basic;
@@ -95,16 +94,16 @@ public class User implements Serializable {
         this.userName = userName;
     }
 
-    public User(String userName, String password) {
-        this.userName = userName;
-        this.password = password;
-    }
-
     public User(String userName, String email, String password, Date birthdate) {
         this.userName = userName;
         this.email = email;
         this.password = password;
         this.birthdate = birthdate;
+    }
+
+    public User(String username, String password) {
+        this.userName = username;
+        this.password = password;
     }
 
     public String getUserName() {
@@ -217,15 +216,7 @@ public class User implements Serializable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("User{");
-        sb.append("userName= ").append(userName);
-        sb.append(", firstName= ").append(firstName);
-        sb.append(", lastName= ").append(lastName);
-        sb.append(", email= ").append(email);
-        sb.append(", password= ").append(password);
-        sb.append(", birthdate= ").append(birthdate);
-        sb.append('}');
-        return sb.toString();
+        return "com.udea.bookclub.domain.User[ userName=" + userName + " ]";
     }
+
 }

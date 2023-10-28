@@ -17,6 +17,7 @@ C:\Users\Jon Leal\Documents\NetBeansProjects\BookClub\src\main\java\com\udea\boo
 C:\Users\Jon Leal\Documents\NetBeansProjects\BookClub\src\main\java\com\udea\bookclub\dao\IUserDAO.java
 C:\Users\Jon Leal\Documents\NetBeansProjects\BookClub\src\main\java\com\udea\bookclub\util\DateConversionUtil.java
 C:\Users\Jon Leal\Documents\NetBeansProjects\BookClub\src\main\java\com\udea\bookclub\controller\UserServlet.java
+C:\Users\Jon Leal\Documents\NetBeansProjects\BookClub\src\main\java\com\udea\bookclub\dao\IBookClubDAO.java
 C:\Users\Jon Leal\Documents\NetBeansProjects\BookClub\src\main\java\com\udea\bookclub\dao\DiscussionDAO.java
 C:\Users\Jon Leal\Documents\NetBeansProjects\BookClub\src\main\java\com\udea\bookclub\dao\DiscussionJpaController.java
 C:\Users\Jon Leal\Documents\NetBeansProjects\BookClub\src\main\java\com\udea\bookclub\dao\UserDAO.java
@@ -26,4 +27,5 @@ C:\Users\Jon Leal\Documents\NetBeansProjects\BookClub\src\main\java\com\udea\boo
 C:\Users\Jon Leal\Documents\NetBeansProjects\BookClub\src\main\java\com\udea\bookclub\dao\CommentJpaController.java
 C:\Users\Jon Leal\Documents\NetBeansProjects\BookClub\src\main\java\com\udea\bookclub\business\IBookClubBusiness.java
 C:\Users\Jon Leal\Documents\NetBeansProjects\BookClub\src\main\java\com\udea\bookclub\controller\BookClubServlet.java
+C:\Users\Jon Leal\Documents\NetBeansProjects\BookClub\src\main\java\com\udea\bookclub\controller\SignUpAndSignInServlet.java
 C:\Users\Jon Leal\Documents\NetBeansProjects\BookClub\src\main\java\com\udea\bookclub\business\IDiscussionBusiness.java

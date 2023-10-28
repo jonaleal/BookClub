@@ -10,6 +10,7 @@ import com.udea.bookclub.domain.User;
 import static com.udea.bookclub.util.DateConversionUtil.convertStringToDate;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.DateFormat;
 import java.util.Date;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -115,13 +116,13 @@ public class SignUpAndSignInServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         String email = request.getParameter("email");
-        Date birthdate = convertStringToDate(request.getParameter("birthdate"), "yyyy-MM-dd");
+        Date birthdate = new Date();
         // Crea un objeto User con los datos del formulario
         User newUser = new User(username, email, password, birthdate);
         // Crea el usuario en la base de datos
         userBusiness.createUser(newUser);
         // Redirecciona a la lista de usuarios
-        response.sendRedirect("/BookClub/user/sign-in-form");
+        response.sendRedirect("/BookClub/successful-register.jsp");
     }
     
     private void showSignInForm(HttpServletRequest request, HttpServletResponse response)

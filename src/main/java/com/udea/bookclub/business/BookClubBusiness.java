@@ -5,7 +5,7 @@
 package com.udea.bookclub.business;
 
 import com.udea.bookclub.dao.BookClubDAO;
-import com.udea.bookclub.dao.IEntityDAO;
+import com.udea.bookclub.dao.IBookClubDAO;
 import com.udea.bookclub.domain.BookClub;
 import java.util.List;
 
@@ -15,7 +15,7 @@ import java.util.List;
  */
 public class BookClubBusiness implements IBookClubBusiness {
 
-    private final IEntityDAO<BookClub> bookClubDAO;
+    private final IBookClubDAO bookClubDAO;
 
     public BookClubBusiness() {
         this.bookClubDAO = new BookClubDAO();
@@ -34,6 +34,21 @@ public class BookClubBusiness implements IBookClubBusiness {
     @Override
     public BookClub getBookClub(BookClub bookClub) {
         return bookClubDAO.find(bookClub);
+    }
+
+    @Override
+    public List<BookClub> getBookClubsByUser(String userName) {
+        return bookClubDAO.getBookClubsByUser(userName);
+    }
+
+    @Override
+    public void deleteBookClub(Integer clubId) {
+        bookClubDAO.destroy(new BookClub(clubId));
+    }
+
+    @Override
+    public void updateBookClub(BookClub bookClub) {
+        bookClubDAO.edit(bookClub);
     }
 
 }

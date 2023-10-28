@@ -46,17 +46,17 @@ public class UserServlet extends HttpServlet {
 
         String action = request.getServletPath();
         System.out.println(action);
-        
+
         boolean isLogued = request.getSession().getAttribute("isLogued") == null ? false : (boolean) request.getSession().getAttribute("isLogued");
         if (!isLogued) {
             response.sendRedirect("/BookClub/test.jsp");
             return;
         }
-        
+
         switch (action) {
             case "/user/list":
                 listUsers(request, response);
-                break;          
+                break;
             case "/user/update-form":
                 showUpdateForm(request, response);
                 break;
@@ -124,7 +124,7 @@ public class UserServlet extends HttpServlet {
     private void showUpdateForm(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         // Recupera el username
-        String username = request.getParameter("username");
+        String username = (String) request.getSession().getAttribute("username");
         // Crea un objeto User con el username
         User user = new User(username);
         // Obtiene el usuario de la base de datos
@@ -136,8 +136,24 @@ public class UserServlet extends HttpServlet {
 
     private void updateUser(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //Crear usuario
-        response.sendRedirect("/user/user-test.jsp");
+        // Recupera los datos del formulario
+        String username = request.getParameter("username");
+        String pictureUrl = request.getParameter("pictureUrl");
+        String firstName = request.getParameter("firstName");
+        String lastName = request.getParameter("lastName");
+        String email = request.getParameter("email");
+        //Recupera el user de la Base de Datos
+        User user = userBusiness.getUser(new User(username));
+        // Actualiza el objeto User con los datos del formulario
+        user.setPictureUrl(pictureUrl);
+        user.setFirstName(firstName);
+        user.setLastName(lastName);
+        user.setEmail(email);
+        // Crea el usuario en la base de datos
+        userBusiness.updateUser(user);
+        // Redirecciona a 
+//        response.sendRedirect("/BookClub/successful-register.jsp");
+        response.sendRedirect("/BookClub/user/update-form");
     }
 
     private void signOutUser(HttpServletRequest request, HttpServletResponse response)

@@ -12,6 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <p>No se ha iniciado sesion.</p>
+        <h1>No se ha iniciado sesion.</h1>
     </body>
 </html>

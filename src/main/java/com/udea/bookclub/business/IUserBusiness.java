@@ -22,4 +22,6 @@ public interface IUserBusiness {
     User getUser(User user);
     
     boolean isRegisteredUser(User user);
+    
+    void updateUser(User user);
 }

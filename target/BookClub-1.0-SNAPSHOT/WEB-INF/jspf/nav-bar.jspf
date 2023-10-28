@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Club De Lectura</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownClubs" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Clubes
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownClubs">
+                    <a class="dropdown-item" href="/BookClub/book-club/list">Todos los clubes</a>
+                    <a class="dropdown-item" href="/BookClub/book-club/list-my-clubs">Clubes que he creado</a>
+                    <a class="dropdown-item" href="/BookClub/book-club/list-my-clubs">Clubes a los que pertenezco</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownClubs" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Mi Cuenta
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownClubs">
+                    <a class="dropdown-item" href="/BookClub//user/update-form">Actualizar Datos</a>                   
+                    <a class="dropdown-item" href="/BookClub/user/sign-out">Cerrar Sesión</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>

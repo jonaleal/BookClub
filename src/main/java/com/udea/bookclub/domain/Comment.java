@@ -40,7 +40,6 @@ public class Comment implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @NotNull
     @Column(name = "comment_id")
     private Integer commentId;
     @Basic(optional = false)

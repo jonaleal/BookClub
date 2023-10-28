@@ -27,6 +27,7 @@ com\udea\bookclub\controller\BookClubServlet.class
 com\udea\bookclub\JakartaRestConfiguration.class
 com\udea\bookclub\business\UserBusiness.class
 com\udea\bookclub\dao\DiscussionDAO.class
+com\udea\bookclub\dao\IBookClubDAO.class
 com\udea\bookclub\dao\exceptions\IllegalOrphanException.class
 com\udea\bookclub\domain\Comment_.class
 com\udea\bookclub\dao\IUserDAO.class

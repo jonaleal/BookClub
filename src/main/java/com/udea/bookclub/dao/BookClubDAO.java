@@ -16,7 +16,7 @@ import javax.persistence.Persistence;
  *
  * @author Jon Leal
  */
-public class BookClubDAO implements IEntityDAO<BookClub> {
+public class BookClubDAO implements IBookClubDAO {
     
     BookClubJpaController bookClubController;
 
@@ -61,6 +61,11 @@ public class BookClubDAO implements IEntityDAO<BookClub> {
     @Override
     public BookClub find(BookClub entity) {
         return bookClubController.findBookClub(entity.getClubId());
+    }
+    
+    @Override
+    public List<BookClub> getBookClubsByUser(String userName){
+        return bookClubController.findByUserName(userName);
     }
     
 }

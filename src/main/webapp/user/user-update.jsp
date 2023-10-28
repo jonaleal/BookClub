@@ -10,32 +10,50 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Actualización Usuario</title>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="/BookClub/css/book-club.css"/>
     </head>
     <body>
-        <h1>Actualización de Usuario</h1>
-        <form action="/BookClub/user/update" method="post">
-            <label for="username">Nombre de Usuario:</label>
-            <input type="text" id="username" name="username" value="${user.userName}" required><br><br>
 
-            <label for="pictureUrl">URL de Imagen:</label>
-            <input type="url" id="pictureUrl" name="pictureUrl" value="${user.pictureUrl}"><br><br>
+        <!-- imagen superior  -->
+        <jsp:include page="../WEB-INF/jspf/header.jspf"/>
 
-            <label for="firstName">Nombre:</label>
-            <input type="text" id="firstName" name="firstName" value="${user.firstName}" required><br><br>
+        <!-- Barra de navegacion  -->
+        <jsp:include page="../WEB-INF/jspf/nav-bar.jspf"/>
 
-            <label for="lastName">Apellido:</label>
-            <input type="text" id="lastName" name="lastName" value="${user.lastName}" required><br><br>
+        <div class="container my-container mb-3">
+            <h1 class="text-center">Actualizar Datos</h1>
+            <form action="/BookClub/user/update" method="post">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="username" name="username" value="${user.userName}" required>
+                </div>
 
-            <label for="email">Correo Electrónico:</label>
-            <input type="email" id="email" name="email" value="${user.email}" required><br><br>
+                <div class="form-group">
+                    <label for="pictureUrl">URL de Imagen:</label>
+                    <input type="url" class="form-control" id="pictureUrl" name="pictureUrl" value="${user.pictureUrl}">
+                </div>
 
-            <label for="password">Contraseña:</label>
-            <input type="password" id="password" name="password" value="${user.password}" required><br><br>
+                <div class="form-group">
+                    <label for="firstName">Nombre:</label>
+                    <input type="text" class="form-control" id="firstName" name="firstName" value="${user.firstName}" required>
+                </div>
 
-            <label for="birthdate">Fecha de Nacimiento:</label>
-            <input type="date" id="birthdate" name="birthdate" required><br><br>
+                <div class="form-group">
+                    <label for="lastName">Apellido:</label>
+                    <input type="text" class="form-control" id="lastName" name="lastName" value="${user.lastName}" required>
+                </div>
 
-            <input type="submit" value="Actualizar">
-        </form>
+                <div class="form-group">
+                    <label for="email">Correo Electrónico:</label>
+                    <input type="email" class="form-control" id="email" name="email" value="${user.email}" required>
+                </div>         
+
+                <button type="submit" class="btn btn-primary btn-block" onclick="return showWarning();">Actualizar</button>
+            </form>
+        </div>
+
+        <!-- Footer -->
+        <jsp:include page="../WEB-INF/jspf/footer.jspf"/>
+        <script src="/BookClub/js/funtions.js"></script>
     </body>
 </html>

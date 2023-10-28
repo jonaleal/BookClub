@@ -44,7 +44,6 @@ public class Discussion implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @NotNull
     @Column(name = "discussion_id")
     private Integer discussionId;
     @Basic(optional = false)
@@ -79,20 +78,19 @@ public class Discussion implements Serializable {
         this.discussionId = discussionId;
     }
 
+    public Discussion(Integer discussionId, String tittle, String description, Date createdAt) {
+        this.discussionId = discussionId;
+        this.tittle = tittle;
+        this.description = description;
+        this.createdAt = createdAt;
+    }
+
     public Discussion(String tittle, String description, Date createdAt, User userName, BookClub clubId) {
         this.tittle = tittle;
         this.description = description;
         this.createdAt = createdAt;
         this.userName = userName;
         this.clubId = clubId;
-    }
-    
-
-    public Discussion(Integer discussionId, String tittle, String description, Date createdAt) {
-        this.discussionId = discussionId;
-        this.tittle = tittle;
-        this.description = description;
-        this.createdAt = createdAt;
     }
 
     public Integer getDiscussionId() {

@@ -266,5 +266,12 @@ public class BookClubJpaController implements Serializable {
             em.close();
         }
     }
-    
+
+    public List<BookClub> findByUserName(String userName) {
+        EntityManager em = getEntityManager();
+        Query query = em.createNamedQuery("BookClub.findByUserName");
+        query.setParameter("userName", userName);
+        return query.getResultList();
+    }
+
 }
