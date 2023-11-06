@@ -64,8 +64,13 @@ public class BookClubDAO implements IBookClubDAO {
     }
     
     @Override
-    public List<BookClub> getBookClubsByUser(String userName){
-        return bookClubController.findByUserName(userName);
+    public List<BookClub> getCreatedBookClubsByUser(String userName){
+        return bookClubController.findCreatedByUserName(userName);
+    }
+
+    @Override
+    public List<BookClub> getJoinedBookClubsByUser(String userName) {
+        return bookClubController.findJoinedByUserName(userName);
     }
     
 }

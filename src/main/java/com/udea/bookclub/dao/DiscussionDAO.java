@@ -4,6 +4,8 @@
  */
 package com.udea.bookclub.dao;
 
+import com.udea.bookclub.dao.exceptions.IllegalOrphanException;
+import com.udea.bookclub.dao.exceptions.NonexistentEntityException;
 import com.udea.bookclub.domain.Discussion;
 import java.util.List;
 import java.util.logging.Level;
@@ -38,7 +40,13 @@ public class DiscussionDAO implements IEntityDAO<Discussion> {
 
     @Override
     public void destroy(Discussion entity) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        try {
+            discussionController.destroy(entity.getDiscussionId());
+        } catch (IllegalOrphanException ex) {
+            Logger.getLogger(DiscussionDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NonexistentEntityException ex) {
+            Logger.getLogger(DiscussionDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @Override

@@ -25,7 +25,7 @@
             <h1 class="text-center">Actualizar Datos</h1>
             <form action="/BookClub/user/update" method="post">
                 <div class="form-group">
-                    <input type="text" class="form-control" id="username" name="username" value="${user.userName}" required>
+                    <input type="text" class="form-control" id="username" name="username" value="${user.userName}" hidden required>
                 </div>
 
                 <div class="form-group">

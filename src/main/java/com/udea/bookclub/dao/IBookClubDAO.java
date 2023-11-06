@@ -13,5 +13,7 @@ import java.util.List;
  */
 public interface IBookClubDAO extends IEntityDAO<BookClub> {
 
-    List<BookClub> getBookClubsByUser(String userName);
+    List<BookClub> getCreatedBookClubsByUser(String userName);
+    
+    List<BookClub> getJoinedBookClubsByUser(String userName);
 }

@@ -13,4 +13,6 @@ import com.udea.bookclub.domain.Discussion;
 public interface IDiscussionBusiness {
 
     void createDiscussion(Discussion discussion);
+    
+    void deleteDiscussion(Integer discussionId);
 }

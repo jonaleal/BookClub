@@ -37,8 +37,8 @@ public class BookClubBusiness implements IBookClubBusiness {
     }
 
     @Override
-    public List<BookClub> getBookClubsByUser(String userName) {
-        return bookClubDAO.getBookClubsByUser(userName);
+    public List<BookClub> getCreatedBookClubsByUser(String userName) {
+        return bookClubDAO.getCreatedBookClubsByUser(userName);
     }
 
     @Override
@@ -49,6 +49,11 @@ public class BookClubBusiness implements IBookClubBusiness {
     @Override
     public void updateBookClub(BookClub bookClub) {
         bookClubDAO.edit(bookClub);
+    }
+
+    @Override
+    public List<BookClub> getJoinedBookClubsByUser(String userName) {
+        return bookClubDAO.getJoinedBookClubsByUser(userName);
     }
 
 }

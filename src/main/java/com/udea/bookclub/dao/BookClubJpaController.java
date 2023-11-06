@@ -191,17 +191,17 @@ public class BookClubJpaController implements Serializable {
             } catch (EntityNotFoundException enfe) {
                 throw new NonexistentEntityException("The bookClub with id " + id + " no longer exists.", enfe);
             }
-            List<String> illegalOrphanMessages = null;
-            List<Discussion> discussionListOrphanCheck = bookClub.getDiscussionList();
-            for (Discussion discussionListOrphanCheckDiscussion : discussionListOrphanCheck) {
-                if (illegalOrphanMessages == null) {
-                    illegalOrphanMessages = new ArrayList<String>();
-                }
-                illegalOrphanMessages.add("This BookClub (" + bookClub + ") cannot be destroyed since the Discussion " + discussionListOrphanCheckDiscussion + " in its discussionList field has a non-nullable clubId field.");
-            }
-            if (illegalOrphanMessages != null) {
-                throw new IllegalOrphanException(illegalOrphanMessages);
-            }
+//            List<String> illegalOrphanMessages = null;
+//            List<Discussion> discussionListOrphanCheck = bookClub.getDiscussionList();
+//            for (Discussion discussionListOrphanCheckDiscussion : discussionListOrphanCheck) {
+//                if (illegalOrphanMessages == null) {
+//                    illegalOrphanMessages = new ArrayList<String>();
+//                }
+//                illegalOrphanMessages.add("This BookClub (" + bookClub + ") cannot be destroyed since the Discussion " + discussionListOrphanCheckDiscussion + " in its discussionList field has a non-nullable clubId field.");
+//            }
+//            if (illegalOrphanMessages != null) {
+//                throw new IllegalOrphanException(illegalOrphanMessages);
+//            }
             User userName = bookClub.getUserName();
             if (userName != null) {
                 userName.getBookClubList().remove(bookClub);
@@ -266,10 +266,17 @@ public class BookClubJpaController implements Serializable {
             em.close();
         }
     }
-
-    public List<BookClub> findByUserName(String userName) {
+    
+    public List<BookClub> findCreatedByUserName(String userName) {
         EntityManager em = getEntityManager();
-        Query query = em.createNamedQuery("BookClub.findByUserName");
+        Query query = em.createNamedQuery("BookClub.findCreatedByUserName");
+        query.setParameter("userName", userName);
+        return query.getResultList();
+    }
+    
+    public List<BookClub> findJoinedByUserName(String userName) {
+        EntityManager em = getEntityManager();
+        Query query = em.createNamedQuery("BookClub.findJoinedByUserName");
         query.setParameter("userName", userName);
         return query.getResultList();
     }

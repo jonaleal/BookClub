@@ -24,5 +24,10 @@ public class DiscussionBusiness implements IDiscussionBusiness {
     public void createDiscussion(Discussion discussion) {
         discussionDAO.create(discussion);
     }
+
+    @Override
+    public void deleteDiscussion(Integer discussionId) {
+        discussionDAO.destroy(new Discussion(discussionId));
+    }
     
 }

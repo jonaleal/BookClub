@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Club De Lectura</a>
+    <a class="navbar-brand" href="/BookClub/book-club/list">Club De Lectura</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -11,11 +11,11 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownClubs">
                     <a class="dropdown-item" href="/BookClub/book-club/list">Todos los clubes</a>
-                    <a class="dropdown-item" href="/BookClub/book-club/list-my-clubs">Clubes que he creado</a>
-                    <a class="dropdown-item" href="/BookClub/book-club/list-my-clubs">Clubes a los que pertenezco</a>
+                    <a class="dropdown-item" href="/BookClub/book-club/list-my-created-clubs">Clubes que he creado</a>
+                    <a class="dropdown-item" href="/BookClub/book-club/list-my-joined-clubs">Clubes a los que pertenezco</a>
                 </div>
             </li>
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown mr-5">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownClubs" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Mi Cuenta
                 </a>

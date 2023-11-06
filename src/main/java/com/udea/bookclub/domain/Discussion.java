@@ -92,7 +92,7 @@ public class Discussion implements Serializable {
         this.userName = userName;
         this.clubId = clubId;
     }
-
+    
     public Integer getDiscussionId() {
         return discussionId;
     }

@@ -27,7 +27,8 @@
         <servlet-name>BookClubServlet</servlet-name>
         <url-pattern>/BookClubServlet</url-pattern>
         <url-pattern>/book-club/list</url-pattern>
-        <url-pattern>/book-club/list-my-clubs</url-pattern>
+        <url-pattern>/book-club/list-my-created-clubs</url-pattern>
+        <url-pattern>/book-club/list-my-joined-clubs</url-pattern>
         <url-pattern>/book-club/show</url-pattern>
         <url-pattern>/book-club/create-form</url-pattern>
         <url-pattern>/book-club/create</url-pattern>
@@ -39,6 +40,7 @@
         <servlet-name>DiscussionServlet</servlet-name>
         <url-pattern>/DiscussionServlet</url-pattern>
         <url-pattern>/discussion/create</url-pattern>
+        <url-pattern>/discussion/delete</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>SignUpAndSignInServlet</servlet-name>

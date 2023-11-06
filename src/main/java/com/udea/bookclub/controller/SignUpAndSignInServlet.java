@@ -119,6 +119,10 @@ public class SignUpAndSignInServlet extends HttpServlet {
         Date birthdate = new Date();
         // Crea un objeto User con los datos del formulario
         User newUser = new User(username, email, password, birthdate);
+        if (userBusiness.isRegisteredUser(newUser)) {
+            response.sendRedirect("/BookClub/test.jsp");
+            return;
+        }
         // Crea el usuario en la base de datos
         userBusiness.createUser(newUser);
         // Redirecciona a la lista de usuarios

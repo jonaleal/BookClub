@@ -5,7 +5,6 @@
 package com.udea.bookclub.dao;
 
 import com.udea.bookclub.dao.exceptions.NonexistentEntityException;
-import com.udea.bookclub.dao.exceptions.PreexistingEntityException;
 import com.udea.bookclub.domain.Comment;
 import java.io.Serializable;
 import javax.persistence.Query;
@@ -33,7 +32,7 @@ public class CommentJpaController implements Serializable {
         return emf.createEntityManager();
     }
 
-    public void create(Comment comment) throws PreexistingEntityException, Exception {
+    public void create(Comment comment) {
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -58,11 +57,6 @@ public class CommentJpaController implements Serializable {
                 discussionId = em.merge(discussionId);
             }
             em.getTransaction().commit();
-        } catch (Exception ex) {
-            if (findComment(comment.getCommentId()) != null) {
-                throw new PreexistingEntityException("Comment " + comment + " already exists.", ex);
-            }
-            throw ex;
         } finally {
             if (em != null) {
                 em.close();

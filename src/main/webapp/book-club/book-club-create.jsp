@@ -40,6 +40,11 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="pictureUrl">Enlace de imagen:</label>
+                    <input type="url" class="form-control" id="pictureUrl" name="pictureUrl" required>
+                </div>
+                
+                <div class="form-group">
                     <label for="meetLink">Enlace de Meet:</label>
                     <input type="url" class="form-control" id="meetLink" name="meetLink" required>
                 </div>

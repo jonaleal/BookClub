@@ -19,7 +19,9 @@ public interface IBookClubBusiness {
 
     BookClub getBookClub(BookClub bookClub);
 
-    List<BookClub> getBookClubsByUser(String userName);
+    List<BookClub> getCreatedBookClubsByUser(String userName);
+    
+    List<BookClub> getJoinedBookClubsByUser(String userName);
     
     void deleteBookClub(Integer clubId);
     

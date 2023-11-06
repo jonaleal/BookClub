@@ -36,7 +36,8 @@ import javax.validation.constraints.Size;
     @NamedQuery(name = "BookClub.findByClubId", query = "SELECT b FROM BookClub b WHERE b.clubId = :clubId"),
     @NamedQuery(name = "BookClub.findByName", query = "SELECT b FROM BookClub b WHERE b.name = :name"),
     @NamedQuery(name = "BookClub.findByMeetLink", query = "SELECT b FROM BookClub b WHERE b.meetLink = :meetLink"),
-    @NamedQuery(name = "BookClub.findByUserName", query = "SELECT b FROM BookClub b WHERE b.userName.userName = :userName")})
+    @NamedQuery(name = "BookClub.findCreatedByUserName", query = "SELECT b FROM BookClub b WHERE b.userName.userName = :userName"),
+    @NamedQuery(name = "BookClub.findJoinedByUserName", query = "SELECT bc FROM User u JOIN u.bookClubList bc WHERE u.userName = :userName")})
 public class BookClub implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -58,6 +59,9 @@ public class BookClub implements Serializable {
     @Size(max = 65535)
     @Column(name = "tags")
     private String tags;
+    @Size(max = 255)
+    @Column(name = "picture_url")
+    private String pictureUrl;
     @Size(max = 255)
     @Column(name = "meet_link")
     private String meetLink;
@@ -121,6 +125,14 @@ public class BookClub implements Serializable {
         this.tags = tags;
     }
 
+    public String getPictureUrl() {
+        return pictureUrl;
+    }
+
+    public void setPictureUrl(String pictureUrl) {
+        this.pictureUrl = pictureUrl;
+    }
+
     public String getMeetLink() {
         return meetLink;
     }
@@ -177,5 +189,5 @@ public class BookClub implements Serializable {
     public String toString() {
         return "com.udea.bookclub.domain.BookClub[ clubId=" + clubId + " ]";
     }
-    
+
 }

@@ -50,7 +50,7 @@ public class DiscussionServlet extends HttpServlet {
             response.sendRedirect("/BookClub/test.jsp");
             return;
         }
-        
+
         switch (action) {
             case "/discussion/create":
                 createDiscussion(request, response);
@@ -107,6 +107,7 @@ public class DiscussionServlet extends HttpServlet {
             throws IOException {
         // Recupera los datos del formulario
         String tittle = request.getParameter("tittle");
+        System.out.println(tittle);
         String description = request.getParameter("description");
         String username = request.getParameter("username");
         int clubId = Integer.parseInt(request.getParameter("clubId"));
@@ -122,8 +123,12 @@ public class DiscussionServlet extends HttpServlet {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    private void deleteDiscussion(HttpServletRequest request, HttpServletResponse response) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    private void deleteDiscussion(HttpServletRequest request, HttpServletResponse response) 
+            throws IOException {
+        int clubId = Integer.parseInt(request.getParameter("fromClubId"));
+        int discussionId = Integer.parseInt(request.getParameter("discussionId"));
+        discussionBusiness.deleteDiscussion(discussionId);
+        response.sendRedirect("/BookClub/book-club/show?clubId=" + clubId);
     }
 
 }

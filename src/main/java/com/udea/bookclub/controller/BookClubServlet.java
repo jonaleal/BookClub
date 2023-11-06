@@ -55,8 +55,11 @@ public class BookClubServlet extends HttpServlet {
             case "/book-club/list":
                 listBookclubs(request, response);
                 break;
-            case "/book-club/list-my-clubs":
-                listMyBookclubs(request, response);
+            case "/book-club/list-my-created-clubs":
+                listMyCreatedBookclubs(request, response);
+                break;
+            case "/book-club/list-my-joined-clubs":
+                listMyJoinedBookclubs(request, response);
                 break;
             case "/book-club/show":
                 showBookclub(request, response);
@@ -149,10 +152,12 @@ public class BookClubServlet extends HttpServlet {
         String name = request.getParameter("name");
         String descripcion = request.getParameter("descripcion");
         String tags = request.getParameter("tags");
+        String pictureUrl = request.getParameter("pictureUrl");
         String meetLink = request.getParameter("meetLink");
         String username = request.getParameter("username");
         // Crea un objeto BookClub con los datos del formulario
         BookClub newBookClub = new BookClub(name, descripcion, tags, meetLink, new User(username));
+        newBookClub.setPictureUrl(pictureUrl);
         // Crea el club en la base de datos
         bookClubBusiness.createBookClub(newBookClub);
         // Redirecciona a la lista de clubes
@@ -168,6 +173,7 @@ public class BookClubServlet extends HttpServlet {
     }
 
     private void updateBookclub(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String userName = (String) request.getSession().getAttribute("username");
         int clubId = Integer.parseInt(request.getParameter("clubId"));
         String name = request.getParameter("name");
         String descripcion = request.getParameter("descripcion");
@@ -179,23 +185,33 @@ public class BookClubServlet extends HttpServlet {
         bookClub.setDescription(descripcion);
         bookClub.setTags(tags);
         bookClub.setMeetLink(meetLink);
+        bookClub.setUserList(List.of(new User(userName)));
         // Actuliza el club en la base de datos
         bookClubBusiness.updateBookClub(bookClub);
-        response.sendRedirect("/BookClub/book-club/update-form?clubId=" + clubId);
+        response.sendRedirect("/BookClub/book-club/show?clubId=" + clubId);
     }
 
-    private void listMyBookclubs(HttpServletRequest request, HttpServletResponse response) 
+    private void listMyCreatedBookclubs(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException {
         String username = (String)request.getSession().getAttribute("username");
-        List<BookClub> bookClubs = bookClubBusiness.getBookClubsByUser(username);
+        List<BookClub> bookClubs = bookClubBusiness.getCreatedBookClubsByUser(username);
         request.setAttribute("bookClubs", bookClubs);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/book-club/book-club-my-list.jsp");
+        dispatcher.forward(request, response);
+    }
+    
+    private void listMyJoinedBookclubs(HttpServletRequest request, HttpServletResponse response) 
+            throws ServletException, IOException {
+        String username = (String)request.getSession().getAttribute("username");
+        List<BookClub> bookClubs = bookClubBusiness.getJoinedBookClubsByUser(username);
+        request.setAttribute("bookClubs", bookClubs);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/book-club/book-club-list.jsp");
         dispatcher.forward(request, response);
     }
 
     private void deleteBookClub(HttpServletRequest request, HttpServletResponse response) throws IOException {
         int clubId = Integer.parseInt(request.getParameter("clubId"));
         bookClubBusiness.deleteBookClub(clubId);
-        response.sendRedirect("/BookClub/book-club/list-my-clubs");
+        response.sendRedirect("/BookClub/book-club/list-my-created-clubs");
     }
 }
