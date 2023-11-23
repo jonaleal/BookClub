@@ -27,7 +27,7 @@
             <div class="row">
                 <div class="col-md-4 mb-3">
                     <div class="card">
-                        <img src="imagen1.jpg" class="card-img-top" alt="Imagen crear club">
+                        <img src="https://udeaeduco-my.sharepoint.com/:i:/r/personal/jonatan_leal_udea_edu_co/Documents/BookClubApp/photo-1637681068516-2b22116e68cf.jfif?csf=1&web=1&e=tGKCie" class="card-img-top" alt="Imagen crear club">
                         <div class="card-body">
                             <h5 class="card-title">Crea un Club</h5>
                             <p class="card-text">Aquí puedes crear un club de lectura para discutir sobre diversos temas.</p>

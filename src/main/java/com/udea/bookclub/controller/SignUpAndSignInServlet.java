@@ -120,7 +120,9 @@ public class SignUpAndSignInServlet extends HttpServlet {
         // Crea un objeto User con los datos del formulario
         User newUser = new User(username, email, password, birthdate);
         if (userBusiness.isRegisteredUser(newUser)) {
-            response.sendRedirect("/BookClub/test.jsp");
+            HttpSession session = request.getSession();
+            session.setAttribute("message", "El usuario ya existe");
+            response.sendRedirect("/BookClub/user/create-form");
             return;
         }
         // Crea el usuario en la base de datos
@@ -152,7 +154,8 @@ public class SignUpAndSignInServlet extends HttpServlet {
         } else {
             session.setAttribute("username", "Null");
             session.setAttribute("isLogued", false);
-            response.sendRedirect("/BookClub/test.jsp");
+            session.setAttribute("message", "Credenciales invalidas");
+            response.sendRedirect("/BookClub");
         }
     }
 }

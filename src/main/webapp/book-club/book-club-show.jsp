@@ -42,7 +42,7 @@
                         <input type="text" id="name" name="name" value="${bookClub.name}" hidden required>
                         <input type="text" id="descripcion" name="descripcion" value="${bookClub.description}" hidden required>
                         <input type="text" id="tags" name="tags" value="${bookClub.tags}" hidden required>
-                        
+
 
                         <input type="url"  id="meetLink" name="meetLink" value="${bookClub.meetLink}" hidden required>
 

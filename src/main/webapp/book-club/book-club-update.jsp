@@ -27,7 +27,7 @@
                 <div class="form-group">
                     <input type="text" class="form-control" id="clubId" name="clubId" value="${bookClub.clubId}" hidden required>
                 </div>
-                
+
                 <div class="form-group">
                     <label for="name">Nombre:</label>
                     <input type="text" class="form-control" id="name" name="name" value="${bookClub.name}" required>
@@ -41,6 +41,11 @@
                 <div class="form-group">
                     <label for="tags">Tags:</label>
                     <input type="text" class="form-control" id="tags" name="tags" value="${bookClub.tags}" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="pictureUrl">Enlace de imagen:</label>
+                    <input type="url" class="form-control" id="pictureUrl" name="pictureUrl" required>
                 </div>
 
                 <div class="form-group">
