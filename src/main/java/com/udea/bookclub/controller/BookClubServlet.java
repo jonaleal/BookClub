@@ -16,6 +16,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -188,21 +189,23 @@ public class BookClubServlet extends HttpServlet {
         bookClub.setUserList(List.of(new User(userName)));
         // Actuliza el club en la base de datos
         bookClubBusiness.updateBookClub(bookClub);
-        response.sendRedirect("/BookClub/book-club/show?clubId=" + clubId);
+        HttpSession session = request.getSession();
+        session.setAttribute("message", "Actualización exitosa");
+        response.sendRedirect("/BookClub/book-club/update-form?clubId=" + clubId);
     }
 
-    private void listMyCreatedBookclubs(HttpServletRequest request, HttpServletResponse response) 
+    private void listMyCreatedBookclubs(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String username = (String)request.getSession().getAttribute("username");
+        String username = (String) request.getSession().getAttribute("username");
         List<BookClub> bookClubs = bookClubBusiness.getCreatedBookClubsByUser(username);
         request.setAttribute("bookClubs", bookClubs);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/book-club/book-club-my-list.jsp");
         dispatcher.forward(request, response);
     }
-    
-    private void listMyJoinedBookclubs(HttpServletRequest request, HttpServletResponse response) 
+
+    private void listMyJoinedBookclubs(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String username = (String)request.getSession().getAttribute("username");
+        String username = (String) request.getSession().getAttribute("username");
         List<BookClub> bookClubs = bookClubBusiness.getJoinedBookClubsByUser(username);
         request.setAttribute("bookClubs", bookClubs);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/book-club/book-club-list.jsp");

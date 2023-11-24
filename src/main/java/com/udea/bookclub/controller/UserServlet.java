@@ -152,7 +152,8 @@ public class UserServlet extends HttpServlet {
         // Crea el usuario en la base de datos
         userBusiness.updateUser(user);
         // Redirecciona a 
-//        response.sendRedirect("/BookClub/successful-register.jsp");
+        HttpSession session = request.getSession();
+        session.setAttribute("message", "Actualización exitosa");
         response.sendRedirect("/BookClub/user/update-form");
     }
 

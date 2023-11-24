@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -24,6 +25,15 @@
         <div class="container my-container mb-3">
             <h1 class="text-center">Actualizar Datos</h1>
             <form action="/BookClub/user/update" method="post">
+                <c:if test="${not empty message}">
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>${message}</strong>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <c:remove var="message"/>
+                </c:if>
                 <div class="form-group">
                     <input type="text" class="form-control" id="username" name="username" value="${user.userName}" hidden required>
                 </div>

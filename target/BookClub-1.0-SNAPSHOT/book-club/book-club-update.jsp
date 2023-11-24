@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -24,6 +25,15 @@
         <div class="container my-container mb-3">
             <h1 class="text-center">Actualizar Club</h1>
             <form action="/BookClub/book-club/update" method="post">
+                <c:if test="${not empty message}">
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>${message}</strong>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <c:remove var="message"/>
+                </c:if>
                 <div class="form-group">
                     <input type="text" class="form-control" id="clubId" name="clubId" value="${bookClub.clubId}" hidden required>
                 </div>
@@ -45,7 +55,7 @@
 
                 <div class="form-group">
                     <label for="pictureUrl">Enlace de imagen:</label>
-                    <input type="url" class="form-control" id="pictureUrl" name="pictureUrl" required>
+                    <input type="url" class="form-control" id="pictureUrl" name="pictureUrl" value="${bookClub.pictureUrl}" required>
                 </div>
 
                 <div class="form-group">
@@ -53,7 +63,7 @@
                     <input type="url" class="form-control" id="meetLink" name="meetLink" value="${bookClub.meetLink}" required>
                 </div>
 
-                <button type="submit" class="btn btn-primary btn-block">Actulizar</button>
+                <button type="submit" class="btn btn-primary btn-block">Actualizar</button>
             </form>
         </div>
 
