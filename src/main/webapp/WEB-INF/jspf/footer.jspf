@@ -1,31 +1,65 @@
+<style>
+    /* Estilos adicionales para ajustar el tamaño de los logos */
+    .ctn_social a {
+        margin-right:25px;
+    }
+
+    .ctn_social i {
+        font-size: 30px; /* Ajusta el tamaño según sea necesario */
+        color: white;
+    }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 <footer>
     <div class="container">
         <div class="row">
-            <div class="col-md-3">
-                <img src="img/icon.png" alt="">
+            <div class="col-md-6">
+                <div class="copy_footer_info">
+                    <div class="ctn_logo">
+                        <a href="https://www.udea.edu.co/">
+                            <img src="/BookClub/Assets/logo_udea_white.png" class="img-fluid"
+                                 alt="Universidad de Antioquia" width="358" height="90">
+                        </a>
+                    </div>
+                    <br>
+                    <div class="ctn_social">
+                        <a target="_blank" href="https://www.linkedin.com/school/universidad-de-antioquia/?originalSubdomain=co"
+                           title="Linkedin">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a target="_blank" href="https://www.youtube.com/user/UniversidadAntioquia" title="Youtube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a target="_blank" href="https://twitter.com/UdeA" title="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a target="_blank" href="https://www.facebook.com/universidaddeantioquia/?fref=ts" title="Facebook">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a target="_blank" href="https://www.instagram.com/udea/" title="Instagram">
+                            <i class="fab fa-instagram" ></i>
+                        </a>
+                        <a target="_blank" href="https://www.tiktok.com/@universidaddeantioquia" title="TikTok">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a target="_blank" href="https://open.spotify.com/collection/podcasts" title="Spotify">
+                            <i class="fab fa-spotify"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-6" id="informacionF">
-                <ul id="informacionContacto">
-                    <li><h3>Información de Contacto</h3></li>
-                    <li><h4>Casa matriz:</h4></li>
-                    <li><p>Av Libertador Bernardo Ohiggins 949, <br> Local 154, subterráneo. Santiago</p></li>
-                    <li><h4>Atención al cliente:</h4></li>
-                    <li><p>Av Libertador Bernardo Ohiggins 949, <br> Oficina 704, piso 7. Santiago <br> Whatsapp +56 9 4186 9896</p></li>
-                </ul>
-            </div>
-            <div class="col-md-3" id="newsletter">
-                <h3>NEWSLETTER</h3>
-                <p>Suscríbete a nuestro Newsletter</p>
-                <form action="">
-                    <input type="email" id="email" placeholder="Ej: contacto@mail.com">
-                    <input type="submit" class="bt" id="suscribirse" value="Suscribirse">
-                </form>
-                <div id="redesF">
-                    <a href="#" target="_blank"><i class="fab fa-facebook-square fa-2x"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-twitter-square fa-2x"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-youtube-square fa-2x"></i></a>
-                    <a href="#"><i class="fas fa-envelope-square fa-2x"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-instagram-square fa-2x"></i></a>
+            <div class="col-md-6">
+                <div class="ctn_body">
+                    <p>
+                        NIT 890980040-8 | Recepción de correspondencia: calle 70 No. 52 - 21 | Apartado Aéreo 1226 | Dirección:
+                        calle 67 No. 53 - 108 | Medellín - Colombia | Correo notificaciones judiciales:
+                        notificacionesjudiciales@udea.edu.co
+                    </p>
+                    <p>
+                        Vigilada Mineducación Acreditación institucional hasta el 2033
+                    </p>
+                    <p>© Copyright 2023 Todos los Derechos Reservados</p>
+                    <p><a title="Nuestros aliados"></a></p>
                 </div>
             </div>
         </div>
