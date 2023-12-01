@@ -6,9 +6,9 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
 <c:set var="isJoined" value="false" />
 <c:forEach items="${bookClub.userList}" var="user">
+    <c:out value="${user.userName}" />
     <c:if test="${user.userName == sessionScope.username}">
         <c:set var="isJoined" value="true" />
     </c:if>
@@ -37,7 +37,7 @@
             <div class="row ml-1"><p>${discussion.description}</p></div>
             <div class="row ml-0">
                 <c:if test="${!isJoined}">
-                    <form action="/BookClub/book-club/update" method="post">                       
+                    <form action="/BookClub/book-club/join" method="post">                       
                         <input type="text" id="clubId" name="clubId" value="${bookClub.clubId}" hidden required>
                         <input type="text" id="name" name="name" value="${bookClub.name}" hidden required>
                         <input type="text" id="descripcion" name="descripcion" value="${bookClub.description}" hidden required>

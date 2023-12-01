@@ -38,7 +38,7 @@
                 <c:forEach var="bookClub" items="${bookClubs}">
                     <div class="col-md-4 mb-3">
                         <div class="card">
-                            <img src="https://source.unsplash.com/random/300x200?sig=${Math.random()}" class="card-img-top" alt="Imagen 1">
+                            <img src="${bookClub.pictureUrl}" class="card-img-top" alt="Imagen 1">
                             <div class="card-body">
                                 <h5 class="card-title">${bookClub.name}</h5>
                                 <p class="card-text">${bookClub.description}</p>

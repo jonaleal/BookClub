@@ -1,18 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
-  <!-- Define Persistence Unit -->
-  <persistence-unit name="com.udea_BookClub" transaction-type="RESOURCE_LOCAL">
-    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-    <class>com.udea.bookclub.domain.BookClub</class>
-    <class>com.udea.bookclub.domain.Comment</class>
-    <class>com.udea.bookclub.domain.Discussion</class>
-    <class>com.udea.bookclub.domain.User</class>
-    <exclude-unlisted-classes>false</exclude-unlisted-classes>
-    <properties>
-      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/virtual_book_club?zeroDateTimeBehavior=CONVERT_TO_NULL"/>
-      <property name="javax.persistence.jdbc.user" value="root"/>
-      <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
-      <property name="javax.persistence.jdbc.password" value=""/>
-    </properties>
-  </persistence-unit>
+    <!-- Define Persistence Unit -->
+    <persistence-unit name="com.udea_BookClub" transaction-type="RESOURCE_LOCAL">
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+        <class>com.udea.bookclub.domain.BookClub</class>
+        <class>com.udea.bookclub.domain.Comment</class>
+        <class>com.udea.bookclub.domain.Discussion</class>
+        <class>com.udea.bookclub.domain.User</class>
+        <exclude-unlisted-classes>false</exclude-unlisted-classes>
+        <properties>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/virtual_book_club?zeroDateTimeBehavior=CONVERT_TO_NULL"/>
+            <property name="javax.persistence.jdbc.user" value="root"/>
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="javax.persistence.jdbc.password" value=""/>
+            <property name="eclipselink.connection-pool.default.initial" value="5"/>
+            <property name="eclipselink.connection-pool.default.min" value="5"/>
+            <property name="eclipselink.connection-pool.default.max" value="20"/>
+            <property name="eclipselink.connection-pool.default.acquireIncrement" value="1"/>
+            <property name="eclipselink.connection-pool.default.acquireRetry" value="3"/>
+            <property name="eclipselink.connection-pool.default.acquireRetryDelay" value="5000"/>
+        </properties>
+    </persistence-unit>
 </persistence>

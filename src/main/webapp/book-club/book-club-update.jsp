@@ -45,7 +45,7 @@
 
                 <div class="form-group">
                     <label for="descripcion">Descripción:</label>
-                    <input type="text" class="form-control" id="descripcion" name="descripcion" value="${bookClub.description}" required>
+                    <textarea class="form-control" id="descripcion" name="descripcion" required>${bookClub.description}</textarea>
                 </div>
 
                 <div class="form-group">

@@ -65,6 +65,9 @@ public class BookClubServlet extends HttpServlet {
             case "/book-club/show":
                 showBookclub(request, response);
                 break;
+            case "/book-club/join":
+                joinBookclub(request, response);
+                break;
             case "/book-club/create-form":
                 showCreateForm(request, response);
                 break;
@@ -136,6 +139,11 @@ public class BookClubServlet extends HttpServlet {
             throws ServletException, IOException {
         int clubId = Integer.parseInt(request.getParameter("clubId"));
         BookClub bookClub = bookClubBusiness.getBookClub(new BookClub(clubId));
+        System.out.println(bookClub.getUserList() + " hoal");
+//        for (User user : bookClub.getUserList()) {
+//            System.out.println(user);
+//            System.out.println("hoal");
+//        }
         request.setAttribute("bookClub", bookClub);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/book-club/book-club-show.jsp");
         dispatcher.forward(request, response);
@@ -216,5 +224,24 @@ public class BookClubServlet extends HttpServlet {
         int clubId = Integer.parseInt(request.getParameter("clubId"));
         bookClubBusiness.deleteBookClub(clubId);
         response.sendRedirect("/BookClub/book-club/list-my-created-clubs");
+    }
+
+    private void joinBookclub(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String userName = (String) request.getSession().getAttribute("username");
+        int clubId = Integer.parseInt(request.getParameter("clubId"));
+        String name = request.getParameter("name");
+        String descripcion = request.getParameter("descripcion");
+        String tags = request.getParameter("tags");
+        String meetLink = request.getParameter("meetLink");
+        // Obtiene el objeto BookClub de la Base de Datos
+        BookClub bookClub = bookClubBusiness.getBookClub(new BookClub(clubId));
+        bookClub.setName(name);
+        bookClub.setDescription(descripcion);
+        bookClub.setTags(tags);
+        bookClub.setMeetLink(meetLink);
+        bookClub.setUserList(List.of(new User(userName)));
+        // Actuliza el club en la base de datos
+        bookClubBusiness.updateBookClub(bookClub);
+        response.sendRedirect("/BookClub/book-club/show?clubId=" + clubId);
     }
 }

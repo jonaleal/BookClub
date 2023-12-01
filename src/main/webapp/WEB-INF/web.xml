@@ -30,6 +30,7 @@
         <url-pattern>/book-club/list-my-created-clubs</url-pattern>
         <url-pattern>/book-club/list-my-joined-clubs</url-pattern>
         <url-pattern>/book-club/show</url-pattern>
+        <url-pattern>/book-club/join</url-pattern>
         <url-pattern>/book-club/create-form</url-pattern>
         <url-pattern>/book-club/create</url-pattern>
         <url-pattern>/book-club/update-form</url-pattern>

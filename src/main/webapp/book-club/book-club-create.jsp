@@ -31,7 +31,7 @@
 
                 <div class="form-group">
                     <label for="descripcion">Descripción:</label>
-                    <input type="text" class="form-control" id="descripcion" name="descripcion" required>
+                    <textarea class="form-control" id="descripcion" name="descripcion" required></textarea>
                 </div>
 
                 <div class="form-group">
